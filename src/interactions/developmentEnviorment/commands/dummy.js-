@@ -1,0 +1,13 @@
+/** @type {import("../../../types/typesDiscord.mjs").ChatInputCommandData} */
+export default {
+    type: 1,
+    name: "dummy",
+    description: "Pong!",
+    default_member_permissions: 8,
+    dm_permission: false,
+    execute: async (interaction, client) => {
+            /* 
+        This file does nothing and is here only for the purpose of creating the directory
+     */
+    }
+};

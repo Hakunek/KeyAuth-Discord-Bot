@@ -1,0 +1,12 @@
+/** @type {import("../../types/typesDiscord.mjs").ContextCommandData} */
+export default {
+    type: 2,
+    name: "dummy",
+    dm_permission: false,
+    default_member_permissions: 8,
+    execute: async (interaction, client) => {
+        /* 
+        This file does nothing and is here only for the purpose of creating the directory
+     */
+    }
+};
