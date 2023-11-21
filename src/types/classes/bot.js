@@ -60,7 +60,7 @@ export default class Bot extends Client {
         for (const path of cmdFo) {
             const split = path.split(/[\\/]+/gim);
             const type = split[split.length - 2];
-            const destination = path.includes("devServer") ? 1 : 0;
+            const destination = path.includes("developmentEnviorment") ? 1 : 0;
             if (!Object.keys(this.interactions).includes(type)) continue;
             const file = (await import(`file://${path}`)).default;
             switch (type) {
