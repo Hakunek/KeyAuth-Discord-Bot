@@ -1,0 +1,24 @@
+{
+    "dependencies": {
+        "discord.js": "^14.14.1",
+        "node-fetch": "^3.3.2"
+    },
+    "name": "keyauth_discord_bot",
+    "version": "2.0.5",
+    "description": "KeyAuth Authentication SellerAPI Discord Bot",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeyAuth/KeyAuth-Discord-Bot.git"
+    },
+    "keywords": ["keyauth", "sellerapi", "discordjs14"],
+    "author": "KeyAuth, mazkdevf <https://github.com/mazkdevf>, Hakunek <https://github.com/Hakunek>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KeyAuth/KeyAuth-Discord-Bot/issues"
+    },
+    "homepage": "https://github.com/KeyAuth/KeyAuth-Discord-Bot#readme"
+}
