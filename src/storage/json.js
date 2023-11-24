@@ -8,7 +8,20 @@ export default class {
     data = {};
     save = async () => {};
     read = async () => {};
+    /**
+     * @param {any} key
+     * @returns {Promise<String>}
+     */
+    getValue = async (key) => {
+        return "";
+    };
 
-    getValue = () => {};
-    setValue = () => {};
+    /**
+     * @param {String} key
+     * @param {String} value
+     * @returns {Promise<boolean>}
+     */
+    setValue = async (key, value) => {
+        return false;
+    };
 }

@@ -1,7 +1,7 @@
 import { Client, Collection } from "discord.js";
 import { fdir } from "fdir";
 (await import("dotenv")).config();
-
+const storage = await import(`../../storage/${process.env.storageType}.js`);
 export default class Bot extends Client {
     captureRejections = true;
     /**
@@ -12,9 +12,9 @@ export default class Bot extends Client {
             /** @type {import("discord.js").MessageMentionOptions} */
             allowedMentions: {
                 parse: ["everyone", "roles", "users"],
-                repliedUser: true
+                repliedUser: true,
             },
-            ...o
+            ...o,
         };
         super(options);
     }
@@ -26,7 +26,7 @@ export default class Bot extends Client {
         contextMenus: new Collection(),
         buttons: new Collection(),
         modals: new Collection(),
-        selectMenu: new Collection()
+        selectMenu: new Collection(),
     };
 
     /**
@@ -73,7 +73,7 @@ export default class Bot extends Client {
         }
         return this;
     };
-
+    storage = storage;
     /**
      * @returns {Promise<Bot>}
      */
