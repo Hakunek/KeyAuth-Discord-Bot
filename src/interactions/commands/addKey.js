@@ -3,8 +3,7 @@ import fetch from "node-fetch";
 /** @type {import("../../types/typesDiscord.mjs").ChatInputCommandData} */
 export default {
     type: 1,
-    name: "add",
-
+    name: "addkey",
     description: "Add key. You must specify the optional parameters the first time. After that they're saved.",
     description_localizations: {
         "en-US": "Add key. You must specify the optional parameters the first time. After they're saved.",
@@ -18,7 +17,7 @@ export default {
         tr: "Anahtar ekleyin. İlk kez isteğe bağlı parametreleri belirtmeniz gerekir. Sonra kaydedilirler.",
         cs: "Přidejte klíč. Musíte zadat volitelné parametry poprvé. Poté jsou uloženy.",
         ja: "キーを追加します。最初にオプションのパラメータを指定する必要があります。その後、保存されます。",
-        ko: "키를 추가하십시오. 최초에 선택적 매개 변수를 지정해야합니다. 그 후 저장됩니다.",
+        ko: "키를 추가하십시오. 최초에 선택적 매개 변수를 지정해야합니다. 그 후 저장됩니다."
     },
     options: [
         {
@@ -37,10 +36,10 @@ export default {
                 tr: "Kaç gün?",
                 cs: "Kolik dní?",
                 ja: "何日？",
-                ko: "몇 일?",
+                ko: "몇 일?"
             },
             min_value: 1,
-            required: false,
+            required: false
         },
         {
             type: 4,
@@ -58,10 +57,10 @@ export default {
                 tr: "Ne seviye?",
                 cs: "Jaká úroveň?",
                 ja: "どのレベル？",
-                ko: "어떤 레벨?",
+                ko: "어떤 레벨?"
             },
             min_value: 1,
-            required: false,
+            required: false
         },
         {
             type: 4,
@@ -79,12 +78,12 @@ export default {
                 tr: "Ne kadar?",
                 cs: "Jaká částka?",
                 ja: "何量？",
-                ko: "얼마?",
+                ko: "얼마?"
             },
             max_value: 20,
             min_value: 1,
-            required: false,
-        },
+            required: false
+        }
     ],
     async execute(interaction, client) {
         await interaction.deferReply({ ephemeral: true });
@@ -103,9 +102,9 @@ export default {
                         fields: [{ name: "Reason:", value: `You cannot add more than twenty keys at a time.` }],
                         color: 0xff0000,
                         footer: { text: "KeyAuth Discord Bot" },
-                        timestamp: `${interaction.createdAt.toISOString()}`,
-                    },
-                ],
+                        timestamp: `${interaction.createdAt.toISOString()}`
+                    }
+                ]
             });
 
         if (days) {
@@ -124,9 +123,9 @@ export default {
                                     fields: [{ name: "Note:", value: `Your seller key is most likely invalid. Change your seller key with \`/setseller\` command.` }],
                                     color: 0xff0000,
                                     footer: { text: "KeyAuth Discord Bot" },
-                                    timestamp: `${interaction.createdAt.toISOString()}`,
-                                },
-                            ],
+                                    timestamp: `${interaction.createdAt.toISOString()}`
+                                }
+                            ]
                         });
                     }
                 });
@@ -139,9 +138,9 @@ export default {
                             description: `No config saved for adding licenses yet. Please do a command with paramaters included then this will work.`,
                             color: 0xff0000,
                             footer: { text: "KeyAuth Discord Bot" },
-                            timestamp: `${interaction.createdAt.toISOString()}`,
-                        },
-                    ],
+                            timestamp: `${interaction.createdAt.toISOString()}`
+                        }
+                    ]
                 });
             licenseAdd = JSON.parse(licenseAdd);
 
@@ -159,12 +158,12 @@ export default {
                                     fields: [{ name: "Note:", value: `Your seller key is most likely invalid. Change your seller key with \`/setseller\` command.` }],
                                     color: 0xff0000,
                                     footer: { text: "KeyAuth Discord Bot" },
-                                    timestamp: `${interaction.createdAt.toISOString()}`,
-                                },
-                            ],
+                                    timestamp: `${interaction.createdAt.toISOString()}`
+                                }
+                            ]
                         });
                     }
                 });
         }
-    },
+    }
 };
