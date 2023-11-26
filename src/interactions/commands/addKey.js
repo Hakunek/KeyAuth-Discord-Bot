@@ -108,9 +108,8 @@ export default {
             });
 
         if (days) {
-            fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=add&expiry=${days}&mask=${license_mask}&level=${level}&amount=${amount}&format=text`)
-                .then((res) => res.text())
-                .then((text) => {
+            fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=add&expiry=${days}&mask=${license_mask}&level=${level}&amount=${amount}&format=text`).then((res) =>
+                res.text().then((text) => {
                     if (!text.includes("message")) {
                         interaction.followUp({ content: `${text}`, ephemeral: true });
                         client.storage.setValue(`{ "days": ${days}, "level": ${level}, "amount": ${amount}}`);
@@ -128,7 +127,8 @@ export default {
                             ]
                         });
                     }
-                });
+                })
+            );
         } else {
             let licenseAdd = await client.storage.getValue("");
             if (licenseAdd === null)
@@ -144,9 +144,8 @@ export default {
                 });
             licenseAdd = JSON.parse(licenseAdd);
 
-            fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=add&expiry=${licenseAdd.days}&mask=${license_mask}&level=${licenseAdd.level}&amount=${licenseAdd.amount}&format=text`)
-                .then((res) => res.text())
-                .then((text) => {
+            fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=add&expiry=${licenseAdd.days}&mask=${license_mask}&level=${licenseAdd.level}&amount=${licenseAdd.amount}&format=text`).then((res) =>
+                res.text().then((text) => {
                     if (!text.includes("message")) {
                         interaction.followUp({ content: `${text}`, ephemeral: true });
                     } else {
@@ -163,7 +162,8 @@ export default {
                             ]
                         });
                     }
-                });
+                })
+            );
         }
     }
 };
