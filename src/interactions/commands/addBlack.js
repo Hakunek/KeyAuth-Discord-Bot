@@ -83,8 +83,8 @@ export default {
         }
 
         let url = "";
-        if (ip) url = `https://keyauth.win/api/seller/?sellerkey=${process.env.sellerkey}&type=black&ip=${ip}`;
-        if (hwid) url = `https://keyauth.win/api/seller/?sellerkey=${process.env.sellerkey}&type=black&hwid=${hwid}`;
+        if (ip) url = `https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=black&ip=${ip}`;
+        if (hwid) url = `https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=black&hwid=${hwid}`;
 
         fetch(url).then((res) =>
             res.json().then((/** @type {any} */ json) => {
