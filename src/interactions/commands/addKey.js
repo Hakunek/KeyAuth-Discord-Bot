@@ -94,19 +94,6 @@ export default {
         let level = interaction.options.getInteger("level", true);
         let amount = interaction.options.getInteger("amount", true);
 
-        if (amount > 20)
-            return interaction.editReply({
-                embeds: [
-                    {
-                        title: "Failure",
-                        fields: [{ name: "Reason:", value: `You cannot add more than twenty keys at a time.` }],
-                        color: 0xff0000,
-                        footer: { text: "KeyAuth Discord Bot" },
-                        timestamp: `${interaction.createdAt.toISOString()}`
-                    }
-                ]
-            });
-
         if (days) {
             fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=add&expiry=${days}&mask=${license_mask}&level=${level}&amount=${amount}&format=text`).then((res) =>
                 res.text().then((text) => {
