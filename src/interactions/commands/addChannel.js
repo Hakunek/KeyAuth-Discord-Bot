@@ -69,7 +69,15 @@ export default {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=addchannel&name=${name}&delay=${delay}`).then((res) =>
             res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
-                    interaction.editReply({ embeds: [{ title: json.message, color: 0x00ff00, timestamp: `${interaction.createdAt.toISOString()}` }] });
+                    interaction.editReply({
+                        embeds: [
+                            {
+                                title: json.message,
+                                color: 0x00ff00,
+                                timestamp: `${interaction.createdAt.toISOString()}`
+                            }
+                        ]
+                    });
                 } else {
                     interaction.editReply({
                         embeds: [

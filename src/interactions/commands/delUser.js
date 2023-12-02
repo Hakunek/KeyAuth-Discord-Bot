@@ -3,21 +3,21 @@ import fetch from "node-fetch";
 /** @type {import("../../types/typesDiscord.mjs").ChatInputCommandData} */
 export default {
     type: 1,
-    name: "addhwid",
-    description: "Add HWID",
+    name: "deluser",
+    description: "Delete user",
     description_localizations: {
-        "en-US": "Add HWID",
-        fi: "Lisää HWID",
-        fr: "Ajouter HWID",
-        de: "HWID hinzufügen",
-        it: "Aggiungi HWID",
-        nl: "Voeg HWID toe",
-        ru: "Добавить HWID",
-        pl: "Dodaj HWID",
-        tr: "HWID ekle",
-        cs: "Přidat HWID",
-        ja: "HWIDを追加",
-        ko: "HWID 추가"
+        "en-US": "Delete user",
+        fi: "Poista käyttäjä",
+        fr: "Supprimer l'utilisateur",
+        de: "Benutzer löschen",
+        it: "Elimina utente",
+        nl: "Verwijder gebruiker",
+        ru: "Удалить пользователя",
+        pl: "Usuń użytkownika",
+        tr: "Kullanıcıyı sil",
+        cs: "Smazat uživatele",
+        ja: "ユーザーを削除する",
+        ko: "사용자 삭제"
     },
     options: [
         {
@@ -39,33 +39,12 @@ export default {
                 ko: "사용자 이름을 입력하십시오"
             },
             required: true
-        },
-        {
-            type: 3,
-            name: "hwid",
-            description: "Enter Additional HWID",
-            description_localizations: {
-                "en-US": "Enter Additional HWID",
-                fi: "Anna lisä HWID",
-                fr: "Entrez un HWID supplémentaire",
-                de: "Geben Sie zusätzliche HWID ein",
-                it: "Inserisci HWID aggiuntivo",
-                nl: "Voer extra HWID in",
-                ru: "Введите дополнительный HWID",
-                pl: "Wprowadź dodatkowy HWID",
-                tr: "Ek HWID girin",
-                cs: "Zadejte další HWID",
-                ja: "追加のHWIDを入力してください",
-                ko: "추가 HWID 입력"
-            },
-            required: true
         }
     ],
     async execute(interaction) {
         let un = interaction.options.getString("username");
-        let auxhwid = interaction.options.getString("hwid");
 
-        fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=addhwiduser&user=${un}&hwid=${auxhwid}`).then((res) =>
+        fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=deluser&user=${un}`).then((res) =>
             res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
                     interaction.editReply({
@@ -73,6 +52,7 @@ export default {
                             {
                                 title: json.message,
                                 color: 0x00ff00,
+                                fields: [{ name: "Subscription deleted:", value: `\`${name}\`` }],
                                 timestamp: `${interaction.createdAt.toISOString()}`
                             }
                         ]

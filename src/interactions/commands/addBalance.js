@@ -185,7 +185,17 @@ export default {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=setbalance&username=${username}&day=${days}&week=${weeks}&month=${months}&threemonth=${threemonths}&sixmonth=${sixmonths}&lifetime=${lifetimes}`).then((res) =>
             res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
-                    interaction.reply({ embeds: [{ title: json.message, color: 0x00ff00, timestamp: `${interaction.createdAt.toISOString()}`, footer: { text: "KeyAuth Discord Bot" } }], ephemeral: true });
+                    interaction.reply({
+                        embeds: [
+                            {
+                                title: json.message,
+                                color: 0x00ff00,
+                                timestamp: `${interaction.createdAt.toISOString()}`,
+                                footer: { text: "KeyAuth Discord Bot" }
+                            }
+                        ],
+                        ephemeral: true
+                    });
                 } else {
                     interaction.reply({
                         embeds: [

@@ -48,7 +48,16 @@ export default {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=addhash&hash=${md5hash}`).then((res) =>
             res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
-                    interaction.editReply({ embeds: [{ title: json.message, color: 0x00ff00, timestamp: `${interaction.createdAt.toISOString()}`, footer: { text: "KeyAuth Discord Bot" } }] });
+                    interaction.editReply({
+                        embeds: [
+                            {
+                                title: json.message,
+                                color: 0x00ff00,
+                                timestamp: `${interaction.createdAt.toISOString()}`,
+                                footer: { text: "KeyAuth Discord Bot" }
+                            }
+                        ]
+                    });
                 } else {
                     interaction.editReply({
                         embeds: [

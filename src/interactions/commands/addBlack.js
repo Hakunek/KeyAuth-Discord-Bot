@@ -62,24 +62,32 @@ export default {
         }
     ],
     async execute(interaction) {
-        let idfrom = null;
-        let ephemeral = true;
-
-        if (interaction.guild == null) {
-            idfrom = interaction.user.id;
-            ephemeral = false;
-        } else {
-            idfrom = interaction.guild.id;
-        }
-
         let ip = interaction.options.getString("ip");
         let hwid = interaction.options.getString("hwid");
 
         if (!ip && !hwid) {
-            return interaction.reply({ embeds: [{ description: `You need to either define hwid or ip paramater. Please try again defining one of these paramaters..`, color: 0xff0000, timestamp: `${interaction.createdAt.toISOString()}` }], ephemeral: true });
+            return interaction.reply({
+                embeds: [
+                    {
+                        description: `You need to either define hwid or ip paramater. Please try again defining one of these paramaters..`,
+                        color: 0xff0000,
+                        timestamp: `${interaction.createdAt.toISOString()}`
+                    }
+                ],
+                ephemeral: true
+            });
         }
         if (ip && hwid) {
-            return interaction.reply({ embeds: [{ description: `Please only define one paramater per command..`, color: 0xff0000, timestamp: `${interaction.createdAt.toISOString()}` }], ephemeral: ephemeral });
+            return interaction.reply({
+                embeds: [
+                    {
+                        description: `Please only define one paramater per command..`,
+                        color: 0xff0000,
+                        timestamp: `${interaction.createdAt.toISOString()}`
+                    }
+                ],
+                ephemeral: true
+            });
         }
 
         let url = "";
@@ -89,7 +97,16 @@ export default {
         fetch(url).then((res) =>
             res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
-                    interaction.reply({ embeds: [{ title: `${json.message}`, color: 0x00ff00, timestamp: `${interaction.createdAt.toISOString()}` }], ephemeral: ephemeral });
+                    interaction.reply({
+                        embeds: [
+                            {
+                                title: `${json.message}`,
+                                color: 0x00ff00,
+                                timestamp: `${interaction.createdAt.toISOString()}`
+                            }
+                        ],
+                        ephemeral: true
+                    });
                 } else {
                     interaction.reply({
                         embeds: [
