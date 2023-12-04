@@ -23,7 +23,7 @@ export default {
     dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=resethash`).then((res) =>
-            res.json().then((json) => {
+            res.json().then((/** @type {any} */ json) => {
                 if (json.success) {
                     interaction.editReply({
                         embeds: [

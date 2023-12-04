@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 /** @type {import("../../types/typesDiscord.mjs").ChatInputCommandData} */
 export default {
     type: 1,

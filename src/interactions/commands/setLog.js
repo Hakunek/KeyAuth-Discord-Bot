@@ -40,6 +40,8 @@ export default {
             required: true
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         let webhook = interaction.options.getString("webhook");
 
