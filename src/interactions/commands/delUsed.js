@@ -19,6 +19,8 @@ export default {
         ja: "使用済みのライセンスを削除する",
         ko: "사용된 라이센스 삭제"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=delused`).then((res) =>
             res.json().then((/** @type {any} */ json) => {

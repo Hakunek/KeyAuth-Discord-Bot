@@ -19,6 +19,8 @@ export default {
         ja: "アプリケーションの統計",
         ko: "응용 프로그램 통계"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=stats`).then((res) =>
             res.json().then((/** @type {any} */ json) => {

@@ -19,6 +19,8 @@ export default {
         ja: "アプリのハッシュをリセットする",
         ko: "앱 해시 재설정"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=resethash`).then((res) =>
             res.json().then((json) => {

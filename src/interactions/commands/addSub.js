@@ -61,6 +61,8 @@ export default {
             required: true
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         let subname = interaction.options.getString("name");
         let sublevel = interaction.options.getString("level");

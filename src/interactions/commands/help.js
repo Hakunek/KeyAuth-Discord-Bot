@@ -19,6 +19,8 @@ export default {
         ja: "ボットのヘルプコマンド",
         ko: "봇의 도움말 명령"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         const embed = {
             title: `KeyAuth help menu`,

@@ -85,6 +85,8 @@ export default {
             required: false
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction, client) {
         await interaction.deferReply({ ephemeral: true });
         let license_mask = await client.storage.getValue("");

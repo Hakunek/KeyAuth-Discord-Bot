@@ -81,6 +81,8 @@ export default {
             required: true
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         let baseurl = interaction.options.getString("baseurl", true);
         let useragent = interaction.options.getString("useragent");

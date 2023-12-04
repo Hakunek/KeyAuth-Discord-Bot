@@ -19,6 +19,8 @@ export default {
         ja: "すべてのユーザーのハードウェアIDをリセットします",
         ko: "모든 사용자의 하드웨어 ID를 재설정합니다"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=resetalluser`).then((res) =>
             res.json().then((/** @type {any} */ json) => {

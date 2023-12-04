@@ -81,6 +81,8 @@ export default {
             required: false
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         let name = interaction.options.getString("name");
         let data = interaction.options.getString("data");

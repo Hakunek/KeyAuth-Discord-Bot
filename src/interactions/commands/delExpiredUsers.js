@@ -19,6 +19,8 @@ export default {
         ja: "アクティブなサブスクリプションのないユーザーを削除する",
         ko: "활성 구독이없는 사용자 삭제"
     },
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         fetch(`https://keyauth.win/api/seller/?sellerkey=${process.env.sellerKey}&type=delexpusers`).then((res) =>
             res.json().then((/** @type {any} */ json) => {

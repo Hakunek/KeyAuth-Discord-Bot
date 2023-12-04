@@ -61,6 +61,8 @@ export default {
             required: false
         }
     ],
+    default_member_permissions: 8,
+    dm_permission: false,
     async execute(interaction) {
         let ip = interaction.options.getString("ip");
         let hwid = interaction.options.getString("hwid");
