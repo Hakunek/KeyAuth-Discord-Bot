@@ -1,3 +1,14 @@
+# This is my version of keyauth bot I'm doing in my free time
+
+for now I still got a lot to do
+I will attempt a merge request into official repo onca this bot is 100% done, tested and I make a simple guide on how set this bot up properly
+
+
+
+
+
+<hr>
+
 # KeyAuth-Discord-Bot-Source
 Source Code of Discord bot for https://keyauth.cc
 
